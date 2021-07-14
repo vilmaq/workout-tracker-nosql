@@ -1,17 +1,15 @@
-const router = require("../view/html");
+const router = require("express").Router();
 
 const {
   getWorkouts,
   addExercise,
   createWorkout,
-  getWorkoutsRange,
+  getWorkoutsInRange,
 } = require("../../controllers/api");
-
-const routes = require("express").Router();
 
 router.get("workouts/", getWorkouts);
 router.put("workouts/:id", addExercise);
 router.post("workouts/", createWorkout);
-render.get("workout/range", getWorkoutsRange);
+router.get("workouts/range", getWorkoutsInRange);
 
 module.exports = router;
