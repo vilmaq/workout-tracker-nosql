@@ -42,7 +42,7 @@ const getWorkoutsInRange = async (req, res) => {
         },
       },
     ])
-      .sort(descending("_id"))
+      .sort({ _id: -1 })
       .limit(7);
     res.json(getWorkoutsByRange);
   } catch (error) {
