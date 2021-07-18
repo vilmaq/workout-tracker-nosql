@@ -5,13 +5,15 @@ const getWorkouts = async (req, res) => {
     const allWorkouts = await Workout.aggregate([
       {
         $addFields: {
-          totalDuration: { $sum: "$workout.duration" },
+          totalDuration: { $sum: "$workout.weight" },
         },
       },
     ]);
     res.json(allWorkouts);
   } catch (error) {
-    res.status(500).json({ message: "Not able to get the workouts" });
+    res
+      .status(500)
+      .json({ message: "Not able to get the workouts total weight" });
   }
 };
 
